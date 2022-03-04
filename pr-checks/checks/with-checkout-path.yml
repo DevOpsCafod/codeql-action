@@ -4,6 +4,8 @@ description: "Checks that a custom `checkout_path` will find the proper commit_o
 # `windows-latest`.
 # Must test on all three platforms since this test does path manipulation
 os: [ubuntu-latest, macos-latest, windows-2019]
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
 steps:
   # Check out the actions repo again, but at a different location.
   # choose an arbitrary SHA so that we can later test that the commit_oid is not from main
