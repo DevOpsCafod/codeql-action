@@ -31,7 +31,11 @@ steps:
       PID=$!
       sleep 60
       echo "killing $PID"
+      set +e
       kill -9 $PID
+
+      # exit happily
+      exit 0
   - name: Build code (windows)
     shell: bash
     if: ${{ runner.os == 'Windows' }}
