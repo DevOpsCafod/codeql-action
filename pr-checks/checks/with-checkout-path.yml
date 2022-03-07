@@ -27,7 +27,11 @@ steps:
       set -x
       echo $CODEQL_RUNNER
 
-      $CODEQL_RUNNER x/y/z/some-path/tests/multi-language-repo/build.sh
+      $CODEQL_RUNNER x/y/z/some-path/tests/multi-language-repo/build.sh &
+      PID=$!
+      sleep 60
+      echo "killing $PID"
+      kill -9 $PID
   - name: Build code (windows)
     shell: bash
     if: ${{ runner.os == 'Windows' }}
