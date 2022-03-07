@@ -95,6 +95,9 @@ jobs:
         $CODEQL_RUNNER x/y/z/some-path/tests/multi-language-repo/build.sh &
         PID=$!
         sleep 60
+
+        ps -ef
+
         echo "killing $PID"
         set +e
         kill -9 $PID
