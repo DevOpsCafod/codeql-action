@@ -11,7 +11,7 @@ steps:
   # choose an arbitrary SHA so that we can later test that the commit_oid is not from main
   - uses: actions/checkout@v2
     with:
-      ref: 474bbf07f9247ffe1856c6a0f94aeeb10e7afee6
+      ref: 60fea345af0fabecd52ae06ab0eff6744a0a9d52
       path: x/y/z/some-path
   - uses: ./../action/init
     with:
@@ -45,7 +45,7 @@ steps:
     with:
       checkout_path: x/y/z/some-path/tests/multi-language-repo
       ref: v1.1.0
-      sha: 474bbf07f9247ffe1856c6a0f94aeeb10e7afee6
+      sha: 60fea345af0fabecd52ae06ab0eff6744a0a9d52
       upload: false
     env:
       TEST_MODE: true
@@ -53,7 +53,7 @@ steps:
   - uses: ./../action/upload-sarif
     with:
       ref: v1.1.0
-      sha: 474bbf07f9247ffe1856c6a0f94aeeb10e7afee6
+      sha: 60fea345af0fabecd52ae06ab0eff6744a0a9d52
       checkout_path: x/y/z/some-path/tests/multi-language-repo
     env:
       TEST_MODE: true
@@ -61,7 +61,7 @@ steps:
   - name: Verify SARIF after upload
     shell: bash
     run: |
-      EXPECTED_COMMIT_OID="474bbf07f9247ffe1856c6a0f94aeeb10e7afee6"
+      EXPECTED_COMMIT_OID="60fea345af0fabecd52ae06ab0eff6744a0a9d52"
       EXPECTED_REF="v1.1.0"
       EXPECTED_CHECKOUT_URI_SUFFIX="/x/y/z/some-path/tests/multi-language-repo"
 
