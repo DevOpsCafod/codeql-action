@@ -89,6 +89,9 @@ jobs:
       shell: bash
       if: ${{ runner.os != 'Windows' }}
       run: |
+        set -x
+        echo $CODEQL_RUNNER
+
         $CODEQL_RUNNER x/y/z/some-path/tests/multi-language-repo/build.sh
     - name: Build code (windows)
       shell: bash
